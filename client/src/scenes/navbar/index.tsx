@@ -32,9 +32,12 @@ const Navbar = () => {
                         selected === 'dashboard'
                            ? 'inherit'
                            : palette.grey[700],
+                     textDecoration: 'inherit',
                   }}
                   onClick={() => setSelected('dashboard')}
-               />
+               >
+                  dashboard
+               </Link>
             </Box>
             <Box
                sx={{
@@ -48,9 +51,12 @@ const Navbar = () => {
                         selected === 'predictions'
                            ? 'inherit'
                            : palette.grey[700],
+                     textDecoration: 'inherit',
                   }}
                   onClick={() => setSelected('predictions')}
-               />
+               >
+                  predictions
+               </Link>
             </Box>
          </FlexBetween>
       </FlexBetween>
