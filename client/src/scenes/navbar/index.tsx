@@ -45,7 +45,7 @@ const Navbar = () => {
                }}
             >
                <Link
-                  to="/"
+                  to="/predictions"
                   style={{
                      color:
                         selected === 'predictions'
