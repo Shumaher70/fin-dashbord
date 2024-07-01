@@ -5,7 +5,9 @@
    "type": "module",
    "scripts": {
       "test": "echo \"Error: no test specified\" && exit 1",
-      "dev": "nodemon index.js"
+      "dev": "nodemon index.js",
+      "start": "node server/index.js",
+      "build": "npm install && npm install --prefix client && npm run build --prefix client"
    },
    "keywords": [],
    "author": "",
@@ -19,7 +21,8 @@
       "helmet": "^7.1.0",
       "mongoose": "^8.4.4",
       "mongoose-currency": "^0.3.0",
-      "morgan": "^1.10.0"
+      "morgan": "^1.10.0",
+      "path": "^0.12.7"
    },
    "devDependencies": {
       "nodemon": "^3.1.4"

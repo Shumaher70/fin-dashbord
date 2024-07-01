@@ -9,6 +9,7 @@ import morgan from 'morgan';
 import kpiRoutes from './routes/kpi.js';
 import productRoutes from './routes/product.js';
 import transactionRoutesRoutes from './routes/transaction.js';
+import path from 'path';
 
 import Transaction from './models/Transaction.js';
 import Product from './models/Product.js';
@@ -23,11 +24,26 @@ app.use(helmet.crossOriginResourcePolicy({ policy: 'cross-origin' }));
 app.use(morgan('common'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cors());
+
+const __dirname = path.resolve();
+
+app.use(
+   cors({
+      origin: process.env.CLIENT_URL,
+      credentials: true,
+      methods: ['GET', 'POST', 'PUT', 'DELETE'],
+   })
+);
 
 app.use('/kpi', kpiRoutes);
 app.use('/product', productRoutes);
 app.use('/transaction', transactionRoutesRoutes);
+
+app.use(express.static(path.join(__dirname, '/client/dist')));
+
+app.get('*', (req, res) => {
+   res.sendFile(path.join(__dirname, 'client', 'dist', 'index.html'));
+});
 
 const PORT = process.env.PORT || 9000;
 mongoose
