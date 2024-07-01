@@ -7,7 +7,7 @@ import {
 } from '@/state/types';
 
 export const api = createApi({
-   baseQuery: fetchBaseQuery({ baseUrl: import.meta.env.VITE_BASE_URL }),
+   baseQuery: fetchBaseQuery({ baseUrl: 'https://fin-dashbord.onrender.com/' }),
    reducerPath: 'main',
    tagTypes: ['Kpis', 'Products', 'Transactions'],
    endpoints: (build) => ({
